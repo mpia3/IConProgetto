@@ -23,21 +23,6 @@ class Clause(object):
             return self.head + " <- " + " & ".join(self.body) + "."
         else:
             return self.head + "."
-    
-    
-    "Other functions"
-    def __repr__(self):#useful to print a collection if clauses (for example)
-        return str(self)
-    
-    def isAtom(self):
-        "Returns True if the clause has no body"
-        return len(self.body)==0
-    
-    
-    def __eq__(self,other):
-        return (self.head==other.head) and (self.body==other.body)
-    
-    
 
 class Askable(object):
     """An askable atom"""
@@ -55,13 +40,12 @@ def yes(ans):
     return ans.lower() in ['yes', 'yes.', 'oui', 'oui.', 'y', 'y.']    # bilingual
 
 #from display import Displayable
-from IPython.display import DisplayHandle
-class KB(DisplayHandle):
+        
+class KB():#Displayable
     """A knowledge base consists of a set of clauses.
     This also creates a dictionary to give fast access to the clauses with an atom in head.
     """
     def __init__(self, statements=[]):
-        DisplayHandle.__init__(self)
         self.statements = statements
         self.clauses = [c for c in statements if isinstance(c, Clause)]
         self.askables = [c.atom for c in statements if isinstance(c, Askable)]
@@ -83,11 +67,6 @@ class KB(DisplayHandle):
         """returns a string representation of this knowledge base.
         """
         return '\n'.join([str(c) for c in self.statements])
-    
-    
-    def display(self,obj,**kwargs):
-        print("Faccio il display")
-        DisplayHandle.display(self,obj,**kwargs)
 
 triv_KB = KB([
     Clause('i_am', ['i_think']),
@@ -95,9 +74,6 @@ triv_KB = KB([
     Clause('i_smell', ['i_exist'])
     ])
 
-    
-    
-    
 elect = KB([
     Clause('light_l1'),
     Clause('light_l2'),
@@ -127,7 +103,5 @@ elect = KB([
     Askable('up_s3'),
     Askable('down_s2')
     ])
-#triv_KB.display(str(triv_KB.statements[0]))
-import inspect
-print(inspect.getmembers(KB, lambda a:not(inspect.isroutine(a))))
+
 # print(kb)
