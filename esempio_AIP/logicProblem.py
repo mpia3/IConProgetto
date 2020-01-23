@@ -104,4 +104,5 @@ elect = KB([
     Askable('down_s2')
     ])
 
-# print(kb)
+
+#print(kb)
