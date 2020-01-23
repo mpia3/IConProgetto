@@ -37,7 +37,7 @@ def build_map(ontology):
         sym = d.has_symptom #prendo tutti i sintomi coinvolti in tale malattia
         sintomi = []
         for j in sym:
-            sintomi.append(j.label) #inserisco le label per i sintomi
+            sintomi.append(j.label[0]) #inserisco le label per i sintomi
         if sym: _map[d.label[REAL_CLASS_LABEL]] = sintomi
         #if sym: _map[dis.label[REAL_CLASS_LABEL]] = [s.label[REAL_CLASS_LABEL] for s in sym]
         #se ci sono sintomi cha causano la malattia:
