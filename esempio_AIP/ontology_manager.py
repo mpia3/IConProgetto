@@ -47,13 +47,12 @@ def build_map(ontology):
 
 
 def create_KB(map_disease_symptom):
-    _KB = lp.KB()
     statements = [] #accoglierà tutte le clausole
     for k in map_disease_symptom.keys(): #intero su tutte le malattie
         defined_clause = lp.Clause(k,map_disease_symptom.get(k)) 
         #costruisce una clausola definita con k(malattia) come testa e sintomi come corpo
         statements.append(defined_clause)
-    _KB = statements #oggetto con tutte le clausole 
+    _KB = lp.KB(statements) #oggetto con tutte le clausole 
     return _KB
         
 
@@ -67,8 +66,6 @@ if __name__== "__main__":
     map_disease_symptom = build_map(idoid) #dizionario malattie,sintomi
     _KB = create_KB(map_disease_symptom) #KB con clausole malattia(tetsa) e sintomi(corpo)
 
-    for i in _KB: #stampa della KB
-        print(i)
     #prova stampa dizionario
     #for k in sym.keys():
         #print(k, "has symptom", sym.get(k))
