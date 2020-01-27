@@ -24,6 +24,9 @@ class Clause(object):
         else:
             return self.head + "."
 
+    def isAtom(self):
+        return not self.body
+
 class Askable(object):
     """An askable atom"""
 
