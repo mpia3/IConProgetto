@@ -55,24 +55,29 @@ def create_KB(map_disease_symptom):
     _KB = lp.KB(statements) #oggetto con tutte le clausole 
     return _KB
         
-
-
+def list_symptoms(map_disease_symptoms):
+    symptoms = []
+    for k in map_disease_symptoms.keys():
+        symptom = map_disease_symptoms.get(k)
+        for i in symptom:
+            symptoms.append(i)
+    symptoms = list(set(symptoms))
+    symptoms.sort()
+    return symptoms
+    
   
 #----------------------------------------------------TEST-------------------------------
+"""
 if __name__== "__main__":
     
     idoid = owl.get_ontology("D:\\utente\\Documents\\IConProgetto\\esempio_AIP\\inferred_doid")
     idoid.load()
     map_disease_symptom = build_map(idoid) #dizionario malattie,sintomi
     _KB = create_KB(map_disease_symptom) #KB con clausole malattia(tetsa) e sintomi(corpo)
-
-    #prova stampa dizionario
-    #for k in sym.keys():
-        #print(k, "has symptom", sym.get(k))
-    """
+"""    
+"""
     for dis in get_class(idoid,"disease"):
         sym = dis.has_symptom
         if sym : print(dis.label,"has symptom ",[s.label for s in sym])
-    """
-        
+"""      
         
