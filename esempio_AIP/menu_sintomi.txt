@@ -1,0 +1,111 @@
+abdominal cramp
+abdominal discomfort
+abdominal distention
+abdominal mass
+abdominal swelling
+abdominal tenderness
+adenopathy
+anaphylactic shock
+anemia
+anxiety
+appendicitis
+arrhythmia
+arthritis
+ascites
+atrial fibrillation
+backache
+blindness
+bloating
+bradycardia
+coma
+confusion
+conjunctivitis
+deafness
+dehydration
+double vision
+drowsiness
+dysarthria
+dyspepsia
+dysphagia
+dysphonia
+dyspnea
+eczema
+edema
+endocarditis
+enlargement of lymph nodes
+epididymitis
+epistaxis
+exophthalmos
+failure to thrive
+gangrene
+heart failure
+hematemesis
+hematochezia
+hematuria
+hemiparesis
+hemoptysis
+hemorrhage
+hepatomegaly
+hepatosplenomegaly
+hoarse voice
+hydrocephalus
+hyperactivity
+hyperesthesia
+hypergammaglobulinemia
+hypersomnia
+hyperventilation
+hypotension
+impotence
+insomnia
+irritability
+itching
+jaundice
+joint pain
+keratitis
+lethargy
+leukocytosis
+leukopenia
+lymphadenitis
+lymphopenia
+melena
+memory impairment
+meningitis
+menorrhagia
+muscle weakness
+myocarditis
+nephritis
+palpitation
+paralysis
+paraplegia
+paresthesia
+pericardial effusion
+petechiae
+phlebitis
+photophobia
+pleural effusion
+pneumonia
+proteinuria
+ptosis
+pulmonary edema
+rash
+rectorrhagia
+seizure
+severe abdominal cramp
+shock
+short stature
+sinus bradycardia
+skin ulcer
+sleep apnea
+spasticity
+splenomegaly
+stroke
+tachycardia
+tachypnea
+thrombocytopenia
+tinnitus
+urticaria
+vascular alteration
+vasculitis
+ventricular tachycardia
+vertigo
+weight loss
