@@ -10,7 +10,6 @@ def selectSymptom():
 def send_symptom():
     input = consoleArea.get("1.0", "end-2c")#legge da linea uno, carattere zero, -2c cancella 2 caratteri(- e newline)
     input = input.split("-")
-    print(input)
     #da qui aggiungere le funzioni per l'elaborazione della malattia
 
 idoid = om.owl.get_ontology("D:\\utente\\Documents\\IConProgetto\\esempio_AIP\\inferred_doid")
