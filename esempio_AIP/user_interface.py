@@ -7,6 +7,9 @@ def selectSymptom():
     if stringS != "null":
         consoleArea.insert(tk.INSERT, stringS+"-")
 
+def cancel_console():
+    consoleArea.delete("1.0", tk.END)
+
 def send_symptom():
     input = consoleArea.get("1.0", "end-2c")#legge da linea uno, carattere zero, -2c cancella 2 caratteri(- e newline)
     input = input.split("-")
@@ -23,10 +26,11 @@ window.geometry("400x400")
 window.resizable(0,0)
 window.title("Human disease diagnosis")
 
-frame = tk.Frame(window)
-frame.pack()
+#---------------------------------------- Upper ----------------------------------------------
+frameUpper = tk.Frame(window)
+frameUpper.pack()
 
-mb =  tk.Menubutton (frame, text="Select symptoms", font=12, relief=tk.RIDGE, pady=10, padx=10, activebackground="light grey")
+mb =  tk.Menubutton (frameUpper, text="Select symptoms", font=12, relief=tk.RIDGE, pady=10, padx=10, activebackground="light grey")
 mb.pack(padx=10, pady=10)
 mb.menu =  tk.Menu (mb)
 mb["menu"] =  mb.menu
@@ -34,12 +38,22 @@ varCheck = tk.StringVar()
 for i in symptoms:
     mb.menu.add_checkbutton(label=i, onvalue=i, offvalue = "null", command=selectSymptom, variable=varCheck)
 
-buttomSubmit = tk.Button(frame, text = "Submit", font=12, activebackground="light grey", relief=tk.RIDGE, command=send_symptom)
-buttomSubmit.pack(padx=10, pady=10)
+#---------------------------------------- Middle ----------------------------------------------
+frameMiddle = tk.Frame(window)
+frameMiddle.pack()
 
-labelConsole = tk.Label(frame, text="Console area:")
+buttomSubmit = tk.Button(frameMiddle, text = "Submit", font=11, activebackground="light grey", relief=tk.RIDGE, command=send_symptom)
+buttomSubmit.pack(side=tk.LEFT, padx=10)
+buttomCancel = tk.Button(frameMiddle, text = "Cancel", font=11, activebackground="light grey", relief=tk.RIDGE, command=cancel_console)
+buttomCancel.pack(side=tk.LEFT, padx=10)
+
+#---------------------------------------- Bottom ----------------------------------------------
+frameBottom = tk.Frame(window)
+frameBottom.pack()
+
+labelConsole = tk.Label(frameBottom, text="Console area:")
 labelConsole.pack(anchor=tk.W)
-consoleArea = tk.Text(frame, wrap=tk.WORD)
+consoleArea = tk.Text(frameBottom, fg="black", wrap=tk.WORD)
 consoleArea.pack()
 
 window.mainloop()
