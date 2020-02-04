@@ -7,7 +7,7 @@ In this file there are functions useful to handle a KB object
 from logicProblem import KB, Clause
 from logicBottomUp import fixed_point
 from prob_utils import ProbItem
-
+import os 
 
 def get_disease(kb= KB()):
     """
@@ -109,7 +109,8 @@ class Test:
     
     
     
-
+def real_filename(filename= ""):
+    return os.path.realpath(filename)
     
     
     

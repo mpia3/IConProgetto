@@ -1,6 +1,7 @@
 
 import tkinter as tk
 import ontology_manager as om
+import KB_utlis as utils
 
 def selectSymptom():
     stringS = varCheck.get()
@@ -15,7 +16,7 @@ def send_symptom():
     input = input.split("-")
     #da qui aggiungere le funzioni per l'elaborazione della malattia
 
-idoid = om.owl.get_ontology("D:\\utente\\Documents\\IConProgetto\\esempio_AIP\\inferred_doid")
+idoid = om.owl.get_ontology(utils.real_filename("inferred_doid"))
 idoid.load()
 map_disease_symptom = om.build_map(idoid) #dizionario malattie,sintomi
 symptoms = om.list_symptoms(map_disease_symptom)
