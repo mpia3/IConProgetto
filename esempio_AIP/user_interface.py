@@ -2,7 +2,6 @@
 import tkinter as tk
 import ontology_manager as om
 import KB_utlis as utils
-import table1 
 
 
 
