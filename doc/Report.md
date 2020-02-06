@@ -94,7 +94,7 @@ Scelte adottate:
 
 ## Manuale utente
 	
-L'applicazione richiede l'utilizzo attraverso un interfaccia utente (GUI). All'apertura dell'applicazione viene mostrata la seguente finestra:
+L'applicazione richiede l'utilizzo attraverso un' interfaccia utente (GUI). All'apertura dell'applicazione viene mostrata la seguente finestra:
 
 ![](drawings/Finestra_Home.png)
 
