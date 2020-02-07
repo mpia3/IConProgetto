@@ -41,11 +41,19 @@ Human Disease Diagnosis è un’applicazione di diagnosi di malattie con interfa
 ### Diagramma delle classi Disease e Symptom
 Per creare la base di conoscenza (KB) le classi prese in considerazione sono state: due Disease e Symptom attraverso la prorpietà 'has_symptom':
 
-![](drawings/domain_class_diagram.jpg)
 
-* La classe Malattia (Disease) suddivivisa in sottoclassi fino alla foglia che rappresenta la vera malattia.
-* La classe Sintomo (Symptom) suddivisa in sottoclassi fino alla foglia che rappresenta il sintomo reale.
-* L'arco che le congiunge attravaerso la proprietà 'has_symptom'.
+
+* La classe malattia (disease) suddivisa in sottoclassi fino alla foglia che rappresenta la vera malattia. Qui di seguito un esempio di gerarchia di malattie attraverso la proprietà 'has_subclass':
+
+![](drawings/Esempio_gerarchia_malattie.png)
+
+* La classe sintomo (symptom) suddivisa in sottoclassi fino alla foglia che rappresenta il sintomo reale. Qui di seguito un esempio di gerarchia di sintomi attraverso la proprietà 'has_subclass':
+
+![](drawings/Esempio_gerarchia_sintomi.png)
+
+* L'arco che le congiunge attraverso la proprietà 'has_symptom'. Qui di seguito un esempio fra 'febbre gialla' (yellow fever) con sintomo (has_symptom) 'itterizio' (jaundice) colorazione giallastra della pelle:
+
+![](drawings/Esempio_malattia_sintomi.png)
 
 </li>
 <li>
