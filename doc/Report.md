@@ -111,7 +111,7 @@ L'applicazione richiede l'utilizzo attraverso un' interfaccia utente (GUI). All'
 * Cliccando su 'Submit' i sintomi scelti dall'utente verranno utilizzati per dedurre le potenziali malattie mostrate a console.
 * Cliccando su 'Cancel' verrà cancellato il contenuto della console 
 
-Un esempio di task dell'utente:
+Un esempio di task dell'utente: inseriti i sintomi, a console appaiono le possibili malattie correlate:
  
 ![](drawings/Esempio_task.png)
 	
