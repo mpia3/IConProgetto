@@ -104,16 +104,16 @@ Scelte adottate:
 	
 L'applicazione richiede l'utilizzo attraverso un' interfaccia utente (GUI). All'apertura dell'applicazione viene mostrata la seguente finestra:
 
-![](drawings/Finestra_Home.png)
+![](drawings/Finestra_Home.PNG)
 
 * Cliccando su 'Select Symptom' viene mostrata una finestra con una lista di sintomi tra cui scegliere.
 * Attraverso la console 'Console area' l'utente può visualizzare i sintomi da lui inseriti e successivamente le malattie che potrebbe avere.
 * Cliccando su 'Submit' i sintomi scelti dall'utente verranno utilizzati per dedurre le potenziali malattie mostrate a console.
 * Cliccando su 'Cancel' verrà cancellato il contenuto della console 
 
-Un esempio di task dell'utente:
+Un esempio di task dell'utente: inseriti i sintomi, a console appaiono le possibili malattie correlate:
  
-![](drawings/Esempio_task.png)
+![](drawings/Esempio_task.PNG)
 	
 
 
