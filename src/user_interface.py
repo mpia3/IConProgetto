@@ -32,7 +32,7 @@ def send_symptom(interface):
         interface.consoleArea.insert(tk.INSERT,"\n-------------RESULT---------\n")
         interface.consoleArea.insert(tk.INSERT,"\ndisease \t\t\t %\n")
         for disease in model:
-            interface.consoleArea.insert(tk.INSERT,str(disease.name)+"\t\t\t"+str(disease.prob*100)+"%"+"\n")
+            interface.consoleArea.insert(tk.INSERT,str(disease.name)+"\t\t\t"+str("{0:.2f}".format(disease.prob*100))+"%"+"\n")
     else:
         from tkinter import messagebox
         messagebox.showinfo(title="Info",message="Cannot find any disease")
