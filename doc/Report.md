@@ -7,15 +7,11 @@
 3. [Requisiti specifici](#requisiti-specifici)
 4. [System Design](#system-design)
 	- [Stile architetturale](#stile-architetturale)
-	- [Diagramma dei package](#diagramma-dei-package)
-	- [Diagramma dei componenti](#diagramma-dei-componenti)
 	- [Commenti delle decisioni prese](#commenti-delle-decisioni-prese)
-5. [OO Design](#oo-design)
-	- [Diagramma delle classi e diagramma di sequenza](#diagramma-delle-classi-e-diagramma-di-sequenza)
-	- [Commento delle decisioni prese](#commento-delle-decisioni-prese)
-7. [Manuale utente](#manuale-utente)
-8. [Processo di sviluppo e organizzazione del lavoro](#processo-di-sviluppo-e-organizzazione-del-lavoro)
-9. [Analisi retrospettiva](#analisi-retrospettiva)
+
+5. [Manuale utente](#manuale-utente)
+6. [Processo di sviluppo e organizzazione del lavoro](#processo-di-sviluppo-e-organizzazione-del-lavoro)
+7. [Analisi retrospettiva](#analisi-retrospettiva)
 	- [Commenti positivi durante il pre post sviluppo](#commenti-positivi-durante-il-pre-post-sviluppo)
 	- [Commenti negativi durante il pre post sviluppo](#commenti-negativi-durante-il-pre-post-sviluppo)
 	- [Problematiche riscontrate](#problematiche-riscontrate)
@@ -70,31 +66,50 @@ Il sistema software soddisfa i seguenti requisiti.
 ## System design
 
 ### Stile architetturale
+<ul>
+<li>API utlizzate</li>
+	Al fine di gestire la conoscenza come una KB basata su clausole si è fatto uso delle classi proposte da David L Poole and Alan K Mackworth.
+	(Per maggiori informazioni visitare il sito www.aipython.org)
+	Le classi utilizzate sono logicBottomUp.py e logicProblem.py
+	
+	Per l'utilizzo dell'ontologia inferred_doid è stata utilizzata la libreria standard owlready2 di python, la quale fornisce primitive per il caricamento,
+	la manipolazione e l'interrogazione di una qualunque ontologia.
+	
+	Notare che per problemi legati all'uso del reasoner non è stato possibile utilizzare la versione originale.
+	Per risolvere questo problema è stato utilizzato Protege. Questa è un'applicazione per la modellazione di ontologie. Essa è stata utilizzata per lanciare il reasoner ed esportare 
+	il tutto, al fine di risolvere i problemi legati all'utilizzo del reasoner tramite owlready2.
+	
+<li>Acquisizione dei dati</li>
+	Per la costruzione della base di conoscenza (oggeto di tipo logicProblem.KB) sono state scritte funzionalità che per l'interrogazione della base di conoscenza (contenute nel file ontology_manager.py), al fine di 
+	reperire le malattie con i rispettivi sintomi. Successivamente sono state costruite le clausole (logicProblem.Clause) e quindi la base di conoscenza.
+	Notare che, a rigor di logica, la KB sarebbe dovuta essere completata, perché una malattia è caratterizzata da determinati sintomi, ma soprattutto è necessario che tutti gli altri
+	non si manifestino. Però ciò avrebbe portato ad un sistema molto selettivo, il quale avrebbe rilevato malattie in molti meno casi, senza tolleranza di errori (esempio: sintomo manifestatosi come falso positivo). Per questo motivo è stato creato un modello
+	probabilistico. Per cui ad ogni malattia appartenente al punto fisso della base di conoscenza, è stato assegnato unno score, il quale indica la probabilità che l'utente abbia contratto 
+	quella malattia.
+	
+<li>Manipolazione dei dati</li>
+	Una volta che i dati sono stati acquisiti ed è stata costruita la base, di conoscenza, il sistema è pronto per esser utilizzato.
+	Attraverso l'interfaccia grafica l'utente sceglie quali sintomi selezionare, dunque premendo il bottone "Submit" parte il ragionamento.
+	Esso consiste nel ritrovamento del punto fisso della base di conoscenza. Dunque viene creato il modello probabilistico e viene stampato a video.
 
-### Diagramma dei package
+<li>Modello probabilistico</li>
+	Per ragioni già citate nelle sezioni precedenti, è stato ideato un modello probabilistico. Esso assegna ad ogni malattia appartenente al punto fisso uno score tale che esso sia positivo e minore o uguale
+	ad 1 e che la somma degli score delle malattie appartenenti al punto fisso sia uguale ad 1.
+	
+	La probailità calcolata si basa sul numero dei sintomi in comune che ha la malattia presa in considerazione con i sintomi selezionati dall'utente.
+	Per cui se denotiamo con S l'insieme dei sintomi che l'utente ha selezionato e con s(m) l'insieme dei sintomi che caratterizzano la malattia, m allora 
+	la probabilità che l'utente abbia contratto la malattia m è denotata dalla legge |s(m)|/|S|. Per cui se sono stati inseriti tutti e soli i sintomi che 
+	caratterizzano la malattia m, è vero che ciò non esclude il fatto che vengano estratte anche altre malattie, ma sicuramente la probabilità di aver contratto
+	la malattia m sarà maggiore o alpiù uguale alla probabilità di aver contratto una qualsiasi altra malattia estratta.
+</ul>
 
-Il sistema software è organizzato secondo il seguente diagramma UML dei **package**:
-
-### Diagramma dei componenti
-
-Il sistema è modellato in termini di componenti e dipendenze tra componenti come mostarto dal seguente diagramma UML dei **componenti**:
 
 ### Commenti delle decisioni prese
 
 La fase di design è molto critica infatti le decisioni prese sopra citate sono state fatte per rendere il software estensibile.
 
 </li>
-<li>
 
-## OO Design
-
-### Diagramma delle classi e diagramma di sequenza
-
-### Commento delle decisioni prese
-
-Scelte adottate:
-
-</li>
 <li>
 
 ## Riepilogo del test
