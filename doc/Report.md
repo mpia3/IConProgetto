@@ -66,8 +66,9 @@ Il sistema software soddisfa i seguenti requisiti.
 ## System design
 
 ### Stile architetturale
-<ul>
-<li>API utlizzate</li>
+
+  * API utlizzate
+  
 	Al fine di gestire la conoscenza come una KB basata su clausole si è fatto uso delle classi proposte da David L Poole and Alan K Mackworth.
 	(Per maggiori informazioni visitare il sito www.aipython.org)
 	Le classi utilizzate sono logicBottomUp.py e logicProblem.py
@@ -79,7 +80,8 @@ Il sistema software soddisfa i seguenti requisiti.
 	Per risolvere questo problema è stato utilizzato Protege. Questa è un'applicazione per la modellazione di ontologie. Essa è stata utilizzata per lanciare il reasoner ed esportare 
 	il tutto, al fine di risolvere i problemi legati all'utilizzo del reasoner tramite owlready2.
 	
-<li>Acquisizione dei dati</li>
+  * Acquisizione dei dati
+  
 	Per la costruzione della base di conoscenza (oggeto di tipo logicProblem.KB) sono state scritte funzionalità che per l'interrogazione della base di conoscenza (contenute nel file ontology_manager.py), al fine di 
 	reperire le malattie con i rispettivi sintomi. Successivamente sono state costruite le clausole (logicProblem.Clause) e quindi la base di conoscenza.
 	Notare che, a rigor di logica, la KB sarebbe dovuta essere completata, perché una malattia è caratterizzata da determinati sintomi, ma soprattutto è necessario che tutti gli altri
@@ -87,12 +89,14 @@ Il sistema software soddisfa i seguenti requisiti.
 	probabilistico. Per cui ad ogni malattia appartenente al punto fisso della base di conoscenza, è stato assegnato unno score, il quale indica la probabilità che l'utente abbia contratto 
 	quella malattia.
 	
-<li>Manipolazione dei dati</li>
+  * Manipolazione dei dati
+  
 	Una volta che i dati sono stati acquisiti ed è stata costruita la base, di conoscenza, il sistema è pronto per esser utilizzato.
 	Attraverso l'interfaccia grafica l'utente sceglie quali sintomi selezionare, dunque premendo il bottone "Submit" parte il ragionamento.
 	Esso consiste nel ritrovamento del punto fisso della base di conoscenza. Dunque viene creato il modello probabilistico e viene stampato a video.
 
-<li>Modello probabilistico</li>
+  * Modello probabilistico
+  
 	Per ragioni già citate nelle sezioni precedenti, è stato ideato un modello probabilistico. Esso assegna ad ogni malattia appartenente al punto fisso uno score tale che esso sia positivo e minore o uguale
 	ad 1 e che la somma degli score delle malattie appartenenti al punto fisso sia uguale ad 1.
 	
@@ -101,7 +105,7 @@ Il sistema software soddisfa i seguenti requisiti.
 	la probabilità che l'utente abbia contratto la malattia m è denotata dalla legge |s(m)|/|S|. Per cui se sono stati inseriti tutti e soli i sintomi che 
 	caratterizzano la malattia m, è vero che ciò non esclude il fatto che vengano estratte anche altre malattie, ma sicuramente la probabilità di aver contratto
 	la malattia m sarà maggiore o alpiù uguale alla probabilità di aver contratto una qualsiasi altra malattia estratta.
-</ul>
+
 
 
 ### Commenti delle decisioni prese
