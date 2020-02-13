@@ -38,8 +38,16 @@ def send_symptom(interface):
         messagebox.showinfo(title="Info",message="Cannot find any disease")
     
  
-    
-    
+def submitHow(entry,KB):
+    res = utils.how(KB,entry)
+    from tkinter import messagebox
+    if res:
+        if not res.body:
+            messagebox.showinfo(title = "How result", message = res.head+" is a symptom that you gave me, so it is true by default")
+        else:
+            messagebox.showinfo(title = "How result", message = "Clause used to proof "+entry+"is : "+str(res))
+    else:
+        messagebox.showerror(title = "Error",message = "Cannot find anything in the system which proof "+entry)
     
     
 class StartInterface():
@@ -78,6 +86,18 @@ class StartInterface():
         self.buttomSubmit.pack(side=tk.LEFT, padx=10)
         self.buttomCancel = tk.Button(self.frameMiddle, text = "Cancel", font=11, activebackground="light grey", relief=tk.RIDGE, command=lambda:cancel_console(self))
         self.buttomCancel.pack(side=tk.LEFT, padx=10)
+        
+        
+        #---------HowFrame--------------------------
+        self.frameHow = tk.Frame(self.window)
+        self.frameHow.pack()
+        
+        self.howlabel = tk.Label(self.frameHow,text = "How")
+        self.howlabel.pack(side = tk.LEFT, padx = 10)
+        self.howQuery = tk.Entry(self.frameHow)
+        self.howQuery.pack()
+        self.howSubmitButton = tk.Button(self.frameHow, text = "Submit",font = 11,activebackground ="light grey", relief = tk.RIDGE,command = lambda: submitHow(self.howQuery.get(),self.kb))
+        self.howSubmitButton.pack(side = tk.LEFT,padx = 10)
         #---------------------------------------- Bottom ----------------------------------------------
         self.frameBottom = tk.Frame(self.window)
         self.frameBottom.pack()
@@ -86,6 +106,11 @@ class StartInterface():
         self.labelConsole.pack(anchor=tk.W)
         self.consoleArea = tk.Text(self.frameBottom, fg="black", wrap=tk.WORD)
         self.consoleArea.pack()
+        
+        
+
+
+        
         
         self.window.mainloop()
 
