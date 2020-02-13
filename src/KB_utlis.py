@@ -60,6 +60,13 @@ def get_prob(disease, kb=KB()):
    
     
     
+def how(KB,item):
+    for c in KB.clauses:
+        if c.head == item:
+            return c
+    return None
+
+
     
 def real_filename(filename= ""):
     return os.path.realpath(filename)
