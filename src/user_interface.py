@@ -86,8 +86,22 @@ class StartInterface():
         self.buttomSubmit.pack(side=tk.LEFT, padx=10)
         self.buttomCancel = tk.Button(self.frameMiddle, text = "Cancel", font=11, activebackground="light grey", relief=tk.RIDGE, command=lambda:cancel_console(self))
         self.buttomCancel.pack(side=tk.LEFT, padx=10)
+    
+        #---------------------------------------- Bottom ----------------------------------------------
+        self.frameBottom = tk.Frame(self.window)
+        self.frameBottom.pack()
+
+        self.scrollbar = tk.Scrollbar(self.frameBottom)
+        self.scrollbar.pack( side = tk.RIGHT, fill = tk.Y )
+
         
-        
+        self.labelConsole = tk.Label(self.frameBottom, text="Console area:")
+        self.labelConsole.pack(anchor=tk.W)
+        self.consoleArea = tk.Text(self.frameBottom, fg="black", wrap=tk.WORD, height=10, yscrollcommand = self.scrollbar.set)
+        self.consoleArea.pack()
+
+        self.scrollbar.config(command=self.consoleArea.yview)
+
         #---------HowFrame--------------------------
         self.frameHow = tk.Frame(self.window)
         self.frameHow.pack()
@@ -95,20 +109,10 @@ class StartInterface():
         self.howlabel = tk.Label(self.frameHow,text = "How")
         self.howlabel.pack(side = tk.LEFT, padx = 10)
         self.howQuery = tk.Entry(self.frameHow)
-        self.howQuery.pack()
+        self.howQuery.pack(side = tk.LEFT, padx = 10)
         self.howSubmitButton = tk.Button(self.frameHow, text = "Submit",font = 11,activebackground ="light grey", relief = tk.RIDGE,command = lambda: submitHow(self.howQuery.get(),self.kb))
         self.howSubmitButton.pack(side = tk.LEFT,padx = 10)
-        #---------------------------------------- Bottom ----------------------------------------------
-        self.frameBottom = tk.Frame(self.window)
-        self.frameBottom.pack()
         
-        self.labelConsole = tk.Label(self.frameBottom, text="Console area:")
-        self.labelConsole.pack(anchor=tk.W)
-        self.consoleArea = tk.Text(self.frameBottom, fg="black", wrap=tk.WORD)
-        self.consoleArea.pack()
-        
-        
-
 
         
         
