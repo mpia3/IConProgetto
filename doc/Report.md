@@ -1,5 +1,10 @@
 # Report
 
+* Membri del gruppo:
+	- Scaringi Raffaele matr.678182
+	- Sterlicchio Gioacchino matr.676716
+	- Sipone Mirco matr.683254
+
 ## Indice
 
 1. [Introduzione](#introduzione)
@@ -8,13 +13,8 @@
 4. [System Design](#system-design)
 	- [Stile architetturale](#stile-architetturale)
 	- [Commenti delle decisioni prese](#commenti-delle-decisioni-prese)
-
 5. [Manuale utente](#manuale-utente)
 6. [Processo di sviluppo e organizzazione del lavoro](#processo-di-sviluppo-e-organizzazione-del-lavoro)
-7. [Analisi retrospettiva](#analisi-retrospettiva)
-	- [Commenti positivi durante il pre post sviluppo](#commenti-positivi-durante-il-pre-post-sviluppo)
-	- [Commenti negativi durante il pre post sviluppo](#commenti-negativi-durante-il-pre-post-sviluppo)
-	- [Problematiche riscontrate](#problematiche-riscontrate)
 
 <ol>
 <li>
@@ -59,6 +59,7 @@ Per creare la base di conoscenza (KB) le classi prese in considerazione sono sta
 Il sistema software soddisfa i seguenti requisiti.
 * Visualizzare la malattia in base ai sintomi inseriti in input da un utente.
 * Visualizzare le malattie più probabili in base ai sintomi inseriti in input da un utente.
+* Spiegare come è stata trovata una malattia.
 
 </li>	
 <li>
@@ -105,6 +106,12 @@ Il sistema software soddisfa i seguenti requisiti.
 	la probabilità che l'utente abbia contratto la malattia m è denotata dalla legge |s(m)|/|S|. Per cui se sono stati inseriti tutti e soli i sintomi che 
 	caratterizzano la malattia m, è vero che ciò non esclude il fatto che vengano estratte anche altre malattie, ma sicuramente la probabilità di aver contratto
 	la malattia m sarà maggiore o alpiù uguale alla probabilità di aver contratto una qualsiasi altra malattia estratta.
+	
+  * How question
+  
+    Sono state implementate funzionalità per la spiegazione dei risultati. In particolare, sono state realizzate funzioni che permettano all'utente di sapere quali siano state le motivazioni del sistema per cui 
+	una determinata malattia sia stata rilevata come vera e sia stata comunicata in output all'utente. La metodologia adottata è stata quella delle how questions trattate nel ragionamento con vincoli.
+	Per cui si restituisce la clausola utilizzata per dimostrare la malattia richiesta dall'utente.
 
 
 
@@ -128,7 +135,10 @@ L'applicazione richiede l'utilizzo attraverso un' interfaccia utente (GUI). All'
 * Cliccando su 'Select Symptom' viene mostrata una finestra con una lista di sintomi tra cui scegliere.
 * Attraverso la console 'Console area' l'utente può visualizzare i sintomi da lui inseriti e successivamente le malattie che potrebbe avere.
 * Cliccando su 'Submit' i sintomi scelti dall'utente verranno utilizzati per dedurre le potenziali malattie mostrate a console.
-* Cliccando su 'Cancel' verrà cancellato il contenuto della console 
+* Cliccando su 'Cancel' verrà cancellato il contenuto della console
+* La parte in basso dell'interfaccia contiene un'area di testo per iserire i sintomi o le malattie per cui si vuole sapere come sono state dimostrate. 
+	
+	![](drawings/Spiegazione_malattia.PNG)
 
 Un esempio di task dell'utente: inseriti i sintomi, a console appaiono le possibili malattie correlate:
  
@@ -177,19 +187,6 @@ Il workflow utilizzato da ogni membro del team è stato il **Github Flow** in cu
 **10.** Ricevuta l'approvazione esplicita di almeno un componente del team, si è potuto procedere da GitHub al merge del nuovo branch con il master branch sul repository remoto.
 
 **11.** Se il merge su GitHub è andato a buon fine, per completare il lavoro, è stato cancellato il branch sul repository remoto (mediante interfaccia web di GitHub) e sul repository locale con la sequenza di comandi: `git checkout master, git pull e git branch -d <nome branch>`.
-
-</li>
-<li>
-
-## Analisi retrospettiva
-
-### Commenti positivi durante il pre-post sviluppo
-
-
-### Commenti negativi durante il pre-post sviluppo
-
-
-### Problematiche riscontrate
 
 </li>
 </ol>
