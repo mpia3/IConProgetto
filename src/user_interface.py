@@ -100,6 +100,8 @@ class StartInterface():
         self.consoleArea = tk.Text(self.frameBottom, fg="black", wrap=tk.WORD, height=10, yscrollcommand = self.scrollbar.set)
         self.consoleArea.pack()
 
+        self.scrollbar.config(command=self.consoleArea.yview)
+
         #---------HowFrame--------------------------
         self.frameHow = tk.Frame(self.window)
         self.frameHow.pack()
