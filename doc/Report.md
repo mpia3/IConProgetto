@@ -35,7 +35,7 @@ Human Disease Diagnosis è un’applicazione di diagnosi di malattie con interfa
 ## Modello di dominio
 
 ### Diagramma delle classi Disease e Symptom
-Per creare la base di conoscenza (KB) le classi prese in considerazione sono state: due Disease e Symptom attraverso la proprietà 'has_symptom':
+Per creare la base di conoscenza (KB) le classi prese in considerazione sono state due: Disease e Symptom attraverso la proprietà 'has_symptom':
 
 
 
