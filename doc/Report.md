@@ -123,10 +123,8 @@ La fase di design è molto critica infatti le decisioni prese sopra citate sono 
 
 <li>
 
-## Riepilogo del test
 
-
-## Manuale utente
+### Manuale utente
 L'applicazione può essere eseguita da riga di comando, posizionandosi nella directory scr e digitando "python user_interface.py", oppure sfruttando le primitive di un IDE qualsiasi. 
 NB: anche se Python permette la compilazione, generando un eseguibile, ciò non è stato fatto per ragioni di portabilità. 
 
